@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UTS Sistem Multimedia - Herva</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #7f00ff, #e100ff);
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      backdrop-filter: blur(10px);
+      animation: slideDown 1s ease-out;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffccff;
+    }
+
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeInUp 1.5s ease both;
+    }
+
+    #home {
+      background: linear-gradient(135deg, #7f00ff, #e100ff);
+    }
+
+    #about {
+      background: #9144ff;
+    }
+
+    #tugas {
+      background: #a055ff;
+    }
+
+    #contact {
+      background: #b266ff;
+    }
+
+    h1 {
+      font-size: 3rem;
+      animation: bounceIn 1.5s ease-out;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 12px 24px;
+      background: white;
+      color: #7f00ff;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    a.button:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#tugas">Tugas</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h1>Selamat Datang di Website UTS</h1>
+    <p>Website ini dibuat untuk pengumpulan tugas Sistem Multimedia</p>
+  </section>
+
+  <section id="about">
+    <h1>Tentang Saya</h1>
+    <p>Nama saya Herva Sulistia, Mahasiswa Teknik Informatika Universitas Riau angkatan 2024.</p>
+  </section>
+
+  <section id="tugas">
+    <h1>Pengumpulan Tugas UTS</h1>
+    <p>Silakan unduh file tugas UTS Sistem Multimedia di bawah ini:</p>
+    <a class="button" href="UTS-Herva-Sulistia.pdf" download>📥 Download Tugas PDF</a>
+  </section>
+
+  <section id="contact">
+    <h1>Kontak</h1>
+    <p>Hubungi saya di IG: <strong>@hervasulistia22</strong></p>
+  </section>
+
+</body>
+</html>
