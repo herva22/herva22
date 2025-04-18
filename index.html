@@ -46,11 +46,7 @@
     #tugas { background: #a055ff; }
     #multimedia { background: #bb66ff; }
     #contact { background: #b266ff; }
-    h1 {
-      font-size: 3rem;
-      animation: fadeInUp 2s ease-out forwards;
-      opacity: 0;
-    }
+    h1 { font-size: 3rem; animation: fadeInUp 2s ease-out forwards; opacity: 0; }
     h2 { margin-top: 40px; }
     p { margin-top: 1rem; font-size: 1.2rem; }
     a.button {
@@ -100,17 +96,6 @@
       font-weight: bold;
       color: #fff;
     }
-    #audio audio {
-      margin-top: 10px;
-      width: 80%;
-      max-width: 500px;
-    }
-    #audio a {
-      color: #ffccff;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    #audio a:hover { text-decoration: underline; }
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -140,7 +125,6 @@
   </style>
 </head>
 <body>
-
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -168,75 +152,13 @@
   <section id="multimedia">
     <h1>Contoh Format Laporan</h1>
 
-    <!-- Font -->
-    <div class="section font-sample">
-      <h2>Contoh Font Populer</h2>
-      <p style="font-family: 'Times New Roman', serif;">Times New Roman</p>
-      <p style="font-family: 'Garamond', serif;">Garamond</p>
-      <p style="font-family: 'Baskerville', serif;">Baskerville</p>
-      <p style="font-family: 'Georgia', serif;">Georgia</p>
-      <p style="font-family: 'Courier New', monospace;">Courier New</p>
-      <p style="font-family: Helvetica, sans-serif;">Helvetica</p>
-      <p style="font-family: Arial, sans-serif;">Arial</p>
-      <p style="font-family: 'Open Sans', sans-serif;">Open Sans</p>
-      <p style="font-family: 'Roboto', sans-serif;">Roboto</p>
-      <p style="font-family: 'Lobster', cursive;">Lobster</p>
-    </div>
+    <!-- Elemen font, gambar, audio, video, dan animasi akan ditambahkan di sini oleh asisten -->
 
-    <!-- Gambar -->
-    <div class="section">
-      <h2>Format Gambar Populer</h2>
-      <div class="gallery">
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.33.21_8ad71978.jpg" alt="JPEG"><p class="label">JPEG</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.33.21_d0dff4ca.jpg" alt="PNG"><p class="label">PNG</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.57_a8988f58.jpg" alt="SVG"><p class="label">SVG</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.58_9bce9467.jpg" alt="GIF"><p class="label">GIF</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.58_e86b9342.jpg" alt="ICO"><p class="label">ICO</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.59_1b2bf2d9.jpg" alt="BMP"><p class="label">BMP</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.43_19e7c64d.jpg" alt="TIFF"><p class="label">TIFF</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.43_c0624f31.jpg" alt="HEIF"><p class="label">HEIF</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.44_abb859a6.jpg" alt="RAW"><p class="label">RAW</p></div>
-        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.44_ced68b8c.jpg" alt="WEBP"><p class="label">WEBP</p></div>
-      </div>
-    </div>
-
-    <!-- Audio -->
-    <div class="section" id="audio">
-      <h2>Contoh 10 Format Audio</h2>
-      <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio><h3>MP3</h3>
-      <audio controls src="https://file-examples.com/storage/feab3090d29904ce1763c13/2017/11/file_example_WAV_1MG.wav"></audio><h3>WAV</h3>
-      <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_OOG_1MG.ogg"></audio><h3>OGG</h3>
-      <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_AAC_1MG.aac"></audio><h3>AAC</h3>
-      <audio controls src="https://filesamples.com/samples/audio/m4a/sample1.m4a"></audio><h3>M4A</h3>
-      <p><a href="https://filesamples.com/samples/audio/flac/sample1.flac" target="_blank">🔗 Download FLAC</a></p>
-      <p><a href="https://filesamples.com/samples/audio/aiff/sample1.aiff" target="_blank">🔗 Download AIFF</a></p>
-      <p><a href="https://archive.org/download/testmp4video_202105/sample_alac.m4a" target="_blank">🔗 Download ALAC</a></p>
-      <p><a href="https://filesamples.com/samples/audio/wma/sample1.wma" target="_blank">🔗 Download WMA</a></p>
-      <p><a href="https://filesamples.com/samples/audio/opus/sample1.opus" target="_blank">🔗 Download OPUS</a></p>
-    </div>
-
-    <!-- Video -->
-    <div class="section" id="video">
-      <h2>Contoh 10 Format Video (YouTube)</h2>
-      <div class="video-grid">
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/XqZsoesa55w" allowfullscreen></iframe><div class="label">MP4</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe><div class="label">MKV</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/f9Jh1dZK1tI" allowfullscreen></iframe><div class="label">AVI</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" allowfullscreen></iframe><div class="label">MOV</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/RgKAFK5djSk" allowfullscreen></iframe><div class="label">WMV</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><div class="label">FLV</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/KYniUCGPGLs" allowfullscreen></iframe><div class="label">WEBM</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" allowfullscreen></iframe><div class="label">3GP</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe><div class="label">AVCHD</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/FzG4uDgje3M" allowfullscreen></iframe><div class="label">MPEG</div></div>
-      </div>
-    </div>
   </section>
 
   <section id="contact">
     <h1>Kontak</h1>
     <p>Hubungi saya di IG: <strong>@hervasulistia22</strong></p>
   </section>
-
 </body>
 </html>
