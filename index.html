@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UTS Sistem Multimedia - Herva</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Lobster&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Lobster&family=Open+Sans&display=swap" rel="stylesheet"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -24,8 +24,6 @@
       justify-content: center;
       gap: 30px;
       backdrop-filter: blur(10px);
-      align-items: center;
-      flex-wrap: nowrap; /* agar menu tetap di satu baris */
     }
     nav a {
       color: white;
@@ -33,53 +31,8 @@
       font-weight: bold;
       font-size: 1rem;
       transition: color 0.3s;
-      white-space: nowrap;
     }
     nav a:hover { color: #ffccff; }
-
-    /* Search input styling */
-    #searchInput {
-      padding: 6px 12px;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-      outline: none;
-      min-width: 180px;
-      max-width: 250px;
-      transition: width 0.3s ease;
-    }
-    #searchResults {
-      position: absolute;
-      top: 38px; /* posisi tepat di bawah input */
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      color: #333;
-      max-width: 300px;
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 1100;
-      display: none;
-      max-height: 250px;
-      overflow-y: auto;
-      font-size: 1rem;
-    }
-    #searchResults div {
-      padding: 10px 15px;
-      cursor: pointer;
-      border-bottom: 1px solid #ddd;
-    }
-    #searchResults div:hover {
-      background-color: #eee;
-    }
-
-    /* Container relative agar searchResults bisa absolute */
-    .search-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
     section {
       padding: 100px 20px;
       text-align: center;
@@ -115,11 +68,13 @@
       background: #f0f0f0;
       transform: scale(1.05);
     }
-
-    /* Multimedia Styles */
-    .section.font-sample p {
-      margin-top: 0.5rem;
-      font-size: 1.3rem;
+    iframe, audio, video, img {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 560px;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
     .gallery {
       display: grid;
@@ -139,9 +94,7 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.3);
       transition: transform 0.3s ease;
     }
-    .item img:hover {
-      transform: scale(1.05);
-    }
+    .item img:hover { transform: scale(1.05); }
     .label {
       margin-top: 10px;
       font-weight: bold;
@@ -157,9 +110,7 @@
       font-weight: bold;
       text-decoration: none;
     }
-    #audio a:hover {
-      text-decoration: underline;
-    }
+    #audio a:hover { text-decoration: underline; }
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -181,10 +132,11 @@
       margin-top: 10px;
       font-size: 1rem;
       color: #ffccff;
-      font-weight: bold;
     }
-
-    /* Video Animasi */
+    @keyframes fadeInUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
     #video-animasi .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -208,11 +160,6 @@
       color: #ffccff;
       font-weight: bold;
     }
-
-    @keyframes fadeInUp {
-      0% { transform: translateY(50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
   </style>
 </head>
 <body>
@@ -223,17 +170,6 @@
     <a href="#tugas">Tugas</a>
     <a href="#multimedia">Contoh Format Laporan</a>
     <a href="#contact">Contact</a>
-
-    <!-- Search dengan wrapper untuk positioning -->
-    <div class="search-wrapper">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Cari di sini..."
-        autocomplete="off"
-      />
-      <div id="searchResults"></div>
-    </div>
   </nav>
 
   <section id="home">
@@ -262,96 +198,106 @@
       <p style="font-family: 'Garamond', serif;">Garamond</p>
       <p style="font-family: 'Baskerville', serif;">Baskerville</p>
       <p style="font-family: 'Georgia', serif;">Georgia</p>
-      <p style="font-family: 'Palatino', serif;">Palatino</p>
-      <p style="font-family: 'Arial', sans-serif;">Arial</p>
-      <p style="font-family: 'Verdana', sans-serif;">Verdana</p>
-      <p style="font-family: 'Helvetica', sans-serif;">Helvetica</p>
-      <p style="font-family: 'Tahoma', sans-serif;">Tahoma</p>
-      <p style="font-family: 'Trebuchet MS', sans-serif;">Trebuchet MS</p>
-      <p style="font-family: 'Calibri', sans-serif;">Calibri</p>
+      <p style="font-family: 'Courier New', monospace;">Courier New</p>
+      <p style="font-family: Helvetica, sans-serif;">Helvetica</p>
+      <p style="font-family: Arial, sans-serif;">Arial</p>
       <p style="font-family: 'Open Sans', sans-serif;">Open Sans</p>
       <p style="font-family: 'Roboto', sans-serif;">Roboto</p>
+      <p style="font-family: 'Lobster', cursive;">Lobster</p>
     </div>
 
     <!-- Gambar -->
     <div class="section">
-      <h2>Contoh Gambar</h2>
+      <h2>Format Gambar Populer</h2>
       <div class="gallery">
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Pemandangan Gunung" />
-          <div class="label">Pemandangan Gunung</div>
-        </div>
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80" alt="Pantai" />
-          <div class="label">Pantai</div>
-        </div>
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Kota di Malam Hari" />
-          <div class="label">Kota di Malam Hari</div>
-        </div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.33.21_8ad71978.jpg" alt="JPEG"><p class="label">JPEG</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.33.21_d0dff4ca.jpg" alt="PNG"><p class="label">PNG</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.57_a8988f58.jpg" alt="SVG"><p class="label">SVG</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.58_9bce9467.jpg" alt="GIF"><p class="label">GIF</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.58_e86b9342.jpg" alt="ICO"><p class="label">ICO</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.59_1b2bf2d9.jpg" alt="BMP"><p class="label">BMP</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.43_19e7c64d.jpg" alt="TIFF"><p class="label">TIFF</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.43_c0624f31.jpg" alt="HEIF"><p class="label">HEIF</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.44_abb859a6.jpg" alt="RAW"><p class="label">RAW</p></div>
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.44_ced68b8c.jpg" alt="WEBP"><p class="label">WEBP</p></div>
       </div>
     </div>
 
     <!-- Audio -->
-    <div id="audio" class="section">
-      <h2>Contoh Audio</h2>
-      <audio controls>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
-        Browser Anda tidak mendukung elemen audio.
-      </audio>
-      <p><a href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" target="_blank" rel="noopener">Download Audio</a></p>
+    <div class="section" id="audio">
+      <h2>Contoh Format Audio</h2>
+      <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio><h3>MP3</h3>
+      <audio controls src="https://file-examples.com/storage/feab3090d29904ce1763c13/2017/11/file_example_WAV_1MG.wav"></audio><h3>WAV</h3>
+      <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_OOG_1MG.ogg"></audio><h3>OGG</h3>
+      <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_AAC_1MG.aac"></audio><h3>AAC</h3>
+      <audio controls src="https://filesamples.com/samples/audio/m4a/sample1.m4a"></audio><h3>M4A</h3>
+      <p><a href="https://filesamples.com/samples/audio/flac/sample1.flac" target="_blank">🔗 Download FLAC</a></p>
+      <p><a href="https://filesamples.com/samples/audio/aiff/sample1.aiff" target="_blank">🔗 Download AIFF</a></p>
+      <p><a href="https://archive.org/download/testmp4video_202105/sample_alac.m4a" target="_blank">🔗 Download ALAC</a></p>
+      <p><a href="https://filesamples.com/samples/audio/wma/sample1.wma" target="_blank">🔗 Download WMA</a></p>
+      <p><a href="https://filesamples.com/samples/audio/opus/sample1.opus" target="_blank">🔗 Download OPUS</a></p>
     </div>
 
     <!-- Video -->
-    <div id="video" class="section">
-      <h2>Contoh Video</h2>
+    <div class="section" id="video">
+      <h2>Contoh Format Video (YouTube)</h2>
       <div class="video-grid">
-        <div class="video-card">
-          <iframe
-            src="https://www.youtube.com/embed/tgbNymZ7vqY"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            title="Video Contoh 1"
-          ></iframe>
-          <div class="label">Video Contoh 1</div>
-        </div>
-        <div class="video-card">
-          <iframe
-            src="https://www.youtube.com/embed/sBws8MSXN7A"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            title="Video Contoh 2"
-          ></iframe>
-          <div class="label">Video Contoh 2</div>
-        </div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/XqZsoesa55w" allowfullscreen></iframe><div class="label">MP4</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe><div class="label">MKV</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/f9Jh1dZK1tI" allowfullscreen></iframe><div class="label">AVI</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" allowfullscreen></iframe><div class="label">MOV</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/RgKAFK5djSk" allowfullscreen></iframe><div class="label">WMV</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><div class="label">FLV</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/KYniUCGPGLs" allowfullscreen></iframe><div class="label">WEBM</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" allowfullscreen></iframe><div class="label">3GP</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe><div class="label">AVCHD</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/FzG4uDgje3M" allowfullscreen></iframe><div class="label">MPEG</div></div>
       </div>
     </div>
 
-    <!-- Video Animasi -->
-    <div id="video-animasi" class="section">
-      <h2>Video Animasi</h2>
+    <!-- Animasi -->
+    <div class="section" id="video-animasi">
+      <h2>Contoh Animasi Populer</h2>
       <div class="video-grid">
         <div class="video-card">
-          <iframe
-            src="https://www.youtube.com/embed/O6Xo21L0ybE"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            title="Animasi Contoh 1"
-          ></iframe>
-          <div class="label">Animasi Contoh 1</div>
+          <iframe src="https://www.youtube.com/embed/4sj1MT05lAA" allowfullscreen></iframe>
+          <div class="label">The Lion King</div>
         </div>
         <div class="video-card">
-          <iframe
-            src="https://www.youtube.com/embed/1La4QzGeaaQ"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            title="Animasi Contoh 2"
-          ></iframe>
-          <div class="label">Animasi Contoh 2</div>
+          <iframe src="https://www.youtube.com/embed/SPHfeNgogVs" allowfullscreen></iframe>
+          <div class="label">Finding Nemo</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/KYz2wyBy3kc" allowfullscreen></iframe>
+          <div class="label">Toy Story</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/tlTHC2vIihQ" allowfullscreen></iframe>
+          <div class="label">Up</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/c8aFcHFu8QM" allowfullscreen></iframe>
+          <div class="label">Frozen</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/o-YBDTqX_ZU" allowfullscreen></iframe>
+          <div class="label">Zootopia</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/8E8_WZfzU2g" allowfullscreen></iframe>
+          <div class="label">Moana</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
+          <div class="label">Inside Out</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/1hZ98W26XtQ" allowfullscreen></iframe>
+          <div class="label">Shrek</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/YWMK52DXudA" allowfullscreen></iframe>
+          <div class="label">Despicable Me</div>
         </div>
       </div>
     </div>
@@ -360,65 +306,8 @@
 
   <section id="contact">
     <h1>Contact</h1>
-    <p>Hubungi saya di email: herva@example.com</p>
+    <p>Email: herva@example.com</p>
   </section>
-
-  <script>
-    const searchData = [
-      { label: 'Home', target: '#home' },
-      { label: 'About', target: '#about' },
-      { label: 'Tugas', target: '#tugas' },
-      { label: 'Contoh Format Laporan', target: '#multimedia' },
-      { label: 'Contact', target: '#contact' },
-      { label: 'Download Tugas PDF', target: 'UJIAN TENGAH SEMESTER SISMUL HERVA SULISTIA.pdf' },
-      // Tambah item lain jika perlu
-    ];
-
-    const input = document.getElementById('searchInput');
-    const results = document.getElementById('searchResults');
-
-    input.addEventListener('input', () => {
-      const query = input.value.toLowerCase().trim();
-      results.innerHTML = '';
-
-      if (!query) {
-        results.style.display = 'none';
-        return;
-      }
-
-      const filtered = searchData.filter(item =>
-        item.label.toLowerCase().includes(query)
-      );
-
-      if (filtered.length === 0) {
-        results.innerHTML = '<div>Tidak ada hasil</div>';
-      } else {
-        filtered.forEach(item => {
-          const div = document.createElement('div');
-          div.textContent = item.label;
-          div.onclick = () => {
-            if (item.target.startsWith('#')) {
-              document.querySelector(item.target).scrollIntoView({ behavior: 'smooth' });
-            } else {
-              window.open(item.target, '_blank');
-            }
-            results.style.display = 'none';
-            input.value = '';
-          };
-          results.appendChild(div);
-        });
-      }
-
-      results.style.display = 'block';
-    });
-
-    // Tutup hasil pencarian jika klik di luar search-wrapper
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.search-wrapper')) {
-        results.style.display = 'none';
-      }
-    });
-  </script>
 
 </body>
 </html>
