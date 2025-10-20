@@ -115,6 +115,100 @@
       background: #f0f0f0;
       transform: scale(1.05);
     }
+
+    /* Multimedia Styles */
+    .section.font-sample p {
+      margin-top: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .item img:hover {
+      transform: scale(1.05);
+    }
+    .label {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #fff;
+    }
+    #audio audio {
+      margin-top: 10px;
+      width: 80%;
+      max-width: 500px;
+    }
+    #audio a {
+      color: #ffccff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #audio a:hover {
+      text-decoration: underline;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .video-card {
+      background: #333;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    .video-card iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+    }
+    .video-card .label {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ffccff;
+      font-weight: bold;
+    }
+
+    /* Video Animasi */
+    #video-animasi .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    #video-animasi .video-card {
+      background: #333;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    #video-animasi iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+    }
+    #video-animasi .label {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ffccff;
+      font-weight: bold;
+    }
+
     @keyframes fadeInUp {
       0% { transform: translateY(50px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
@@ -160,7 +254,108 @@
 
   <section id="multimedia">
     <h1>Contoh Format Laporan</h1>
-    <!-- Tambahkan konten multimedia kamu di sini -->
+
+    <!-- Font -->
+    <div class="section font-sample">
+      <h2>Contoh Font Populer</h2>
+      <p style="font-family: 'Times New Roman', serif;">Times New Roman</p>
+      <p style="font-family: 'Garamond', serif;">Garamond</p>
+      <p style="font-family: 'Baskerville', serif;">Baskerville</p>
+      <p style="font-family: 'Georgia', serif;">Georgia</p>
+      <p style="font-family: 'Palatino', serif;">Palatino</p>
+      <p style="font-family: 'Arial', sans-serif;">Arial</p>
+      <p style="font-family: 'Verdana', sans-serif;">Verdana</p>
+      <p style="font-family: 'Helvetica', sans-serif;">Helvetica</p>
+      <p style="font-family: 'Tahoma', sans-serif;">Tahoma</p>
+      <p style="font-family: 'Trebuchet MS', sans-serif;">Trebuchet MS</p>
+      <p style="font-family: 'Calibri', sans-serif;">Calibri</p>
+      <p style="font-family: 'Open Sans', sans-serif;">Open Sans</p>
+      <p style="font-family: 'Roboto', sans-serif;">Roboto</p>
+    </div>
+
+    <!-- Gambar -->
+    <div class="section">
+      <h2>Contoh Gambar</h2>
+      <div class="gallery">
+        <div class="item">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Pemandangan Gunung" />
+          <div class="label">Pemandangan Gunung</div>
+        </div>
+        <div class="item">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80" alt="Pantai" />
+          <div class="label">Pantai</div>
+        </div>
+        <div class="item">
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Kota di Malam Hari" />
+          <div class="label">Kota di Malam Hari</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio -->
+    <div id="audio" class="section">
+      <h2>Contoh Audio</h2>
+      <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+        Browser Anda tidak mendukung elemen audio.
+      </audio>
+      <p><a href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" target="_blank" rel="noopener">Download Audio</a></p>
+    </div>
+
+    <!-- Video -->
+    <div id="video" class="section">
+      <h2>Contoh Video</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe
+            src="https://www.youtube.com/embed/tgbNymZ7vqY"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="Video Contoh 1"
+          ></iframe>
+          <div class="label">Video Contoh 1</div>
+        </div>
+        <div class="video-card">
+          <iframe
+            src="https://www.youtube.com/embed/sBws8MSXN7A"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="Video Contoh 2"
+          ></iframe>
+          <div class="label">Video Contoh 2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Animasi -->
+    <div id="video-animasi" class="section">
+      <h2>Video Animasi</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe
+            src="https://www.youtube.com/embed/O6Xo21L0ybE"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="Animasi Contoh 1"
+          ></iframe>
+          <div class="label">Animasi Contoh 1</div>
+        </div>
+        <div class="video-card">
+          <iframe
+            src="https://www.youtube.com/embed/1La4QzGeaaQ"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="Animasi Contoh 2"
+          ></iframe>
+          <div class="label">Animasi Contoh 2</div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <section id="contact">
