@@ -24,6 +24,7 @@
       justify-content: center;
       gap: 30px;
       backdrop-filter: blur(10px);
+      align-items: center;
     }
     nav a {
       color: white;
@@ -33,6 +34,17 @@
       transition: color 0.3s;
     }
     nav a:hover { color: #ffccff; }
+
+    /* Search input styling */
+    #searchInput {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      min-width: 180px;
+    }
+
     section {
       padding: 100px 20px;
       text-align: center;
@@ -137,6 +149,44 @@
       0% { transform: translateY(50px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
     }
+
+    /* tambahan video-animasi */
+    #video-animasi .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    #video-animasi .video-card {
+      background: #333;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    #video-animasi iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+    }
+    #video-animasi .label {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ffccff;
+      font-weight: bold;
+    }
+
+    /* Pesan no results */
+    #noResults {
+      display: none;
+      text-align: center;
+      padding: 50px;
+      font-size: 1.5rem;
+      color: white;
+      background: rgba(0,0,0,0.3);
+      margin: 30px auto;
+      border-radius: 12px;
+      max-width: 500px;
+    }
   </style>
 </head>
 <body>
@@ -147,6 +197,18 @@
     <a href="#tugas">Tugas</a>
     <a href="#multimedia">Contoh Format Laporan</a>
     <a href="#contact">Contact</a>
+
+    <!-- Search input -->
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Cari di sini..."
+      onkeyup="searchContent()"
+      autocomplete="off"
+    />
+
+    <!-- Ikon Search (optional, bisa dipakai toggle, sekarang hanya tampil) -->
+    <a href="javascript:void(0)" class="search-icon" onclick="openSearch()">🔍</a>
   </nav>
 
   <section id="home">
@@ -208,110 +270,4 @@
       <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_OOG_1MG.ogg"></audio><h3>OGG</h3>
       <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_AAC_1MG.aac"></audio><h3>AAC</h3>
       <audio controls src="https://filesamples.com/samples/audio/m4a/sample1.m4a"></audio><h3>M4A</h3>
-      <p><a href="https://filesamples.com/samples/audio/flac/sample1.flac" target="_blank">🔗 Download FLAC</a></p>
-      <p><a href="https://filesamples.com/samples/audio/aiff/sample1.aiff" target="_blank">🔗 Download AIFF</a></p>
-      <p><a href="https://archive.org/download/testmp4video_202105/sample_alac.m4a" target="_blank">🔗 Download ALAC</a></p>
-      <p><a href="https://filesamples.com/samples/audio/wma/sample1.wma" target="_blank">🔗 Download WMA</a></p>
-      <p><a href="https://filesamples.com/samples/audio/opus/sample1.opus" target="_blank">🔗 Download OPUS</a></p>
-    </div>
-
-    <!-- Video -->
-    <div class="section" id="video">
-      <h2>Contoh Format Video (YouTube)</h2>
-      <div class="video-grid">
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/XqZsoesa55w" allowfullscreen></iframe><div class="label">MP4</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe><div class="label">MKV</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/f9Jh1dZK1tI" allowfullscreen></iframe><div class="label">AVI</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" allowfullscreen></iframe><div class="label">MOV</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/RgKAFK5djSk" allowfullscreen></iframe><div class="label">WMV</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><div class="label">FLV</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/KYniUCGPGLs" allowfullscreen></iframe><div class="label">WEBM</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" allowfullscreen></iframe><div class="label">3GP</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe><div class="label">AVCHD</div></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/FzG4uDgje3M" allowfullscreen></iframe><div class="label">MPEG</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tambahkan ini di akhir bagian section id="multimedia", setelah bagian video -->
-<div class="section" id="video-animasi">
-  <h2>Contoh Animasi Populer</h2>
-  <div class="video-grid">
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/4sj1MT05lAA" allowfullscreen></iframe>
-      <div class="label">The Lion King</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/SPHfeNgogVs" allowfullscreen></iframe>
-      <div class="label">Finding Nemo</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/KYz2wyBy3kc" allowfullscreen></iframe>
-      <div class="label">Toy Story</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/TbQm5doF_Uc" allowfullscreen></iframe>
-      <div class="label">Frozen</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/HWEW_qTLSEE" allowfullscreen></iframe>
-      <div class="label">Up</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/LKFuXETZUsI" allowfullscreen></iframe>
-      <div class="label">Moana</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/6DxjJzmYsXo" allowfullscreen></iframe>
-      <div class="label">Minions</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/SbXIj2T-_uk" allowfullscreen></iframe>
-      <div class="label">Cars</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/seMwpP0yeu4" allowfullscreen></iframe>
-      <div class="label">Inside Out</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/MJa7rjN8nYA" allowfullscreen></iframe>
-      <div class="label">SpongeBob SquarePants Movie</div>
-    </div>
-  </div>
-</div>
-
-<!-- Tambahkan ke <style> agar sesuai dengan tampilan -->
-<style>
-  #video-animasi .video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-  }
-  #video-animasi .video-card {
-    background: #333;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-  }
-  #video-animasi iframe {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-  }
-  #video-animasi .label {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #ffccff;
-    font-weight: bold;
-  }
-</style>
-
-
-  <section id="contact">
-    <h1>Kontak</h1>
-    <p>Hubungi saya di IG: <strong>@hervasulistia22</strong></p>
-  </section>
-
-</body>
-</html>
+      <
