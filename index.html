@@ -2,395 +2,448 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Menu Multimedia - Contoh Format Laporan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UTS Sistem Multimedia - Herva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Lobster&family=Open+Sans&display=swap" rel="stylesheet"/>
   <style>
-    /* Reset sederhana */
-    * {
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 20px;
-      background: #f9f9f9;
-      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #7f00ff, #e100ff);
+      color: white;
     }
-    h1, h2, h3 {
-      color: #222;
-    }
-    #multimedia {
-      max-width: 1200px;
-      margin: auto;
-      background: white;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
-    }
-
-    /* Search box */
-    #searchInput {
-      font-size: 1.1rem;
-      padding: 12px 15px;
+    nav {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px 30px;
+      position: fixed;
       width: 100%;
-      max-width: 400px;
-      border: 2px solid #6c63ff;
-      border-radius: 8px;
-      outline-offset: 2px;
-      transition: border-color 0.3s ease;
-      margin-bottom: 30px;
-    }
-    #searchInput:focus {
-      border-color: #3f3cff;
-      box-shadow: 0 0 8px #3f3cff66;
-    }
-
-    /* Sections */
-    .section {
-      margin-bottom: 40px;
-    }
-
-    /* Font list */
-    .font-sample p {
-      margin: 6px 0;
-      padding: 8px 12px;
-      border-radius: 6px;
-      background: #e0e0ff;
-      cursor: default;
-      font-size: 1.1rem;
-    }
-
-    /* Gallery Gambar */
-    .gallery {
+      top: 0;
+      left: 0;
+      z-index: 1000;
       display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: flex-start;
+      justify-content: center;
+      gap: 20px;
+      backdrop-filter: blur(10px);
+      align-items: center;
     }
-    .gallery .item {
-      background: #f4f4ff;
-      border-radius: 10px;
-      padding: 10px;
-      width: 120px;
-      text-align: center;
-      box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
-      cursor: default;
-      transition: transform 0.2s ease;
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
     }
-    .gallery .item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgb(0 0 0 / 0.2);
-    }
-    .gallery img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-bottom: 6px;
-      height: 80px;
-      object-fit: contain;
-    }
-    .gallery .label {
-      font-weight: 600;
-      color: #4b4bff;
+    nav a:hover { color: #ffccff; }
+    .search-icon {
+      cursor: pointer;
+      font-size: 1.2rem;
       user-select: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
     }
-
-    /* Audio */
-    #audio .audio-item {
-      margin-bottom: 20px;
-      background: #e8f0ff;
-      padding: 12px 15px;
+    .search-icon:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    #home { background: linear-gradient(135deg, #7f00ff, #e100ff); }
+    #about { background: #9144ff; }
+    #tugas { background: #a055ff; }
+    #multimedia { background: #bb66ff; }
+    #contact { background: #b266ff; }
+    h1 {
+      font-size: 3rem;
+      animation: fadeInUp 2s ease-out forwards;
+      opacity: 0;
+    }
+    h2 { margin-top: 40px; }
+    p { margin-top: 1rem; font-size: 1.2rem; }
+    a.button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 12px 24px;
+      background: white;
+      color: #7f00ff;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    a.button:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+    }
+    iframe, audio, video, img {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 560px;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .item img {
+      width: 100%;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .item img:hover { transform: scale(1.05); }
+    .label {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #fff;
     }
     #audio audio {
-      width: 100%;
-      outline-offset: 2px;
-      border-radius: 6px;
+      margin-top: 10px;
+      width: 80%;
+      max-width: 500px;
     }
-    #audio h3 {
-      margin-top: 8px;
-      color: #4b4bff;
-    }
-    #audio p a {
-      color: #6c63ff;
+    #audio a {
+      color: #ffccff;
+      font-weight: bold;
       text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      margin: 6px 0;
-      transition: color 0.3s ease;
     }
-    #audio p a:hover {
-      color: #3f3cff;
-      text-decoration: underline;
-    }
-
-    /* Video Grid */
+    #audio a:hover { text-decoration: underline; }
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
     .video-card {
-      background: #eef0ff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgb(0 0 0 / 0.1);
-      position: relative;
-      cursor: default;
-      transition: transform 0.2s ease;
-    }
-    .video-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 22px rgb(0 0 0 / 0.2);
+      background: #333;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     }
     .video-card iframe {
       width: 100%;
-      height: 180px;
-      border: none;
-      border-bottom: 2px solid #6c63ff;
+      height: 200px;
+      border-radius: 10px;
     }
     .video-card .label {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ffccff;
+    }
+    @keyframes fadeInUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    #video-animasi .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    #video-animasi .video-card {
+      background: #333;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    #video-animasi iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+    }
+    #video-animasi .label {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ffccff;
+      font-weight: bold;
+    }
+
+    /* Search Overlay */
+    #searchOverlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      z-index: 3000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    #searchOverlay input[type="text"] {
+      width: 300px;
+      max-width: 90vw;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-bottom: 15px;
+      box-shadow: 0 0 15px #d3a6ff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    #searchOverlay button.close-btn {
+      background: #ff66cc;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-bottom: 20px;
+    }
+    #searchOverlay button.close-btn:hover {
+      background: #ff3399;
+    }
+    #searchResults {
+      color: #ffccff;
+      font-size: 1.1rem;
+      max-height: 200px;
+      overflow-y: auto;
+      width: 300px;
+      max-width: 90vw;
+      background: rgba(255,255,255,0.1);
       padding: 10px;
-      font-weight: 700;
-      text-align: center;
-      color: #3f3cff;
-      background: #d3d6ff;
-      user-select: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #d3a6ff;
+      text-align: left;
     }
-
-    /* Utility hide */
-    .hidden {
-      display: none !important;
+    #searchResults a {
+      display: block;
+      color: #ffccff;
+      text-decoration: underline;
+      margin-bottom: 5px;
+      cursor: pointer;
     }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .gallery {
-        justify-content: center;
-      }
-      .gallery .item {
-        width: 40vw;
-      }
+    #searchResults a:hover {
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-<section id="multimedia">
-  <h1>🎉 Contoh Format Laporan Multimedia 🎉</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#tugas">Tugas</a>
+    <a href="#multimedia">Contoh Format Laporan</a>
+    <a href="#contact">Contact</a>
+    <span class="search-icon" onclick="openSearch()">🔍</span>
+  </nav>
 
-  <!-- Search Box -->
-  <input type="text" id="searchInput" placeholder="Cari format (misal: jpeg, mp3, roboto, dll.)" />
+  <section id="home">
+    <h1>Selamat Datang di Website Saya</h1>
+    <p>HERVA SULISTIA</p>
+  </section>
 
-  <!-- Font -->
-  <div class="section font-sample">
-    <h2>📚 Contoh Font Populer</h2>
-    <p class="searchable" data-keywords="times new roman serif">Times New Roman</p>
-    <p class="searchable" data-keywords="garamond serif">Garamond</p>
-    <p class="searchable" data-keywords="baskerville serif">Baskerville</p>
-    <p class="searchable" data-keywords="georgia serif">Georgia</p>
-    <p class="searchable" data-keywords="courier new monospace">Courier New</p>
-    <p class="searchable" data-keywords="helvetica sans-serif">Helvetica</p>
-    <p class="searchable" data-keywords="arial sans-serif">Arial</p>
-    <p class="searchable" data-keywords="open sans sans-serif">Open Sans</p>
-    <p class="searchable" data-keywords="roboto sans-serif">Roboto</p>
-    <p class="searchable" data-keywords="lobster cursive">Lobster</p>
+  <section id="about">
+    <h1>Tentang Saya</h1>
+    <p>Nama saya Herva Sulistia, Mahasiswa Teknik Informatika Universitas Riau angkatan 2024.</p>
+  </section>
+
+  <section id="tugas">
+    <h1>Pengumpulan Tugas UTS</h1>
+    <p>Silakan unduh atau baca langsung file tugas UTS Sistem Multimedia di bawah ini:</p>
+    <a class="button" href="UJIAN TENGAH SEMESTER SISMUL HERVA SULISTIA.pdf" target="_blank" download>📥 Download / Buka Tugas PDF</a>
+  </section>
+
+  <section id="multimedia">
+    <h1>Contoh Format Laporan</h1>
+    <!-- Font --> 
+    <div class="section font-sample"> 
+      <h2>Contoh Font Populer</h2> 
+      <p style="font-family: 'Times New Roman', serif;">Times New Roman</p> 
+      <p style="font-family: 'Garamond', serif;">Garamond</p> 
+      <p style="font-family: 'Baskerville', serif;">Baskerville</p> 
+      <p style="font-family: 'Georgia', serif;">Georgia</p> 
+      <p style="font-family: 'Courier New', monospace;">Courier New</p> 
+      <p style="font-family: Helvetica, sans-serif;">Helvetica</p> 
+      <p style="font-family: Arial, sans-serif;">Arial</p> 
+      <p style="font-family: 'Open Sans', sans-serif;">Open Sans</p> 
+      <p style="font-family: 'Roboto', sans-serif;">Roboto</p> 
+      <p style="font-family: 'Lobster', cursive;">Lobster</p> </div>
+
+    <!-- Gambar --> 
+    <div class="section"> 
+      <h2>Format Gambar Populer</h2> 
+      <div class="gallery"> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.33.21_8ad71978.jpg" alt="JPEG"><p class="label">JPEG</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.33.21_d0dff4ca.jpg" alt="PNG"><p class="label">PNG</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.57_a8988f58.jpg" alt="SVG"><p class="label">SVG</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.58_9bce9467.jpg" alt="GIF"><p class="label">GIF</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.58_e86b9342.jpg" alt="ICO"><p class="label">ICO</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.34.59_1b2bf2d9.jpg" alt="BMP"><p class="label">BMP</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.43_19e7c64d.jpg" alt="TIFF"><p class="label">TIFF</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.43_c0624f31.jpg" alt="HEIF"><p class="label">HEIF</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.44_abb859a6.jpg" alt="RAW"><p class="label">RAW</p></div> 
+        <div class="item"><img src="WhatsApp Image 2025-04-18 at 20.36.44_ced68b8c.jpg" alt="WEBP"><p class="label">WEBP</p></div> 
+      </div> 
+    </div>
+
+    <!-- Audio --> 
+    <div class="section" id="audio"> 
+      <h2>Contoh Format Audio</h2> 
+      <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio><h3>MP3</h3> 
+      <audio controls src="https://file-examples.com/storage/feab3090d29904ce1763c13/2017/11/file_example_WAV_1MG.wav"></audio><h3>WAV</h3> 
+      <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_OOG_1MG.ogg"></audio><h3>OGG</h3> 
+      <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_AAC_1MG.aac"></audio><h3>AAC</h3> 
+      <audio controls src="https://filesamples.com/samples/audio/m4a/sample1.m4a"></audio><h3>M4A</h3> 
+      <p><a href="https://filesamples.com/samples/audio/flac/sample1.flac" target="_blank">🔗 Download FLAC</a></p> 
+      <p><a href="https://filesamples.com/samples/audio/aiff/sample1.aiff" target="_blank">🔗 Download AIFF</a></p> 
+      <p><a href="https://archive.org/download/testmp4video_202105/sample_alac.m4a" target="_blank">🔗 Download ALAC</a></p> 
+      <p><a href="https://filesamples.com/samples/audio/wma/sample1.wma" target="_blank">🔗 Download WMA</a></p> 
+      <p><a href="https://filesamples.com/samples/audio/opus/sample1.opus" target="_blank">🔗 Download OPUS</a></p> 
+    </div>
+
+    <!-- Video --> 
+    <div class="section" id="video"> 
+      <h2>Contoh Format Video (YouTube)</h2> 
+      <div class="video-grid"> 
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/XqZsoesa55w" allowfullscreen></iframe><div class="label">MP4</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe><div class="label">MKV</div></div> 
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/f9Jh1dZK1tI" allowfullscreen></iframe><div class="label">AVI</div></div> 
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" allowfullscreen></iframe><div class="label">MOV</div></div> 
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/RgKAFK5djSk" allowfullscreen></iframe><div class="label">WMV</div></div> 
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe><div class="label">FLV</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/KYniUCGPGLs" allowfullscreen></iframe><div class="label">WEBM</div></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" allowfullscreen></iframe><div class="label">3GP</div></div> 
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe><div class="label">AVCHD</div></div> 
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/FzG4uDgje3M" allowfullscreen></iframe><div class="label">MPEG</div></div> 
+      </div> 
+    </div>
+
+    <!-- Animasi --> 
+    <div class="section" id="video-animasi"> 
+      <h2>Contoh Animasi Populer</h2> 
+      <div class="video-grid"> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/4sj1MT05lAA" allowfullscreen></iframe> 
+          <div class="label">The Lion King</div> 
+        </div> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/SPHfeNgogVs" allowfullscreen></iframe> 
+          <div class="label">Finding Nemo</div> 
+        </div> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/KYz2wyBy3kc" allowfullscreen></iframe> 
+          <div class="label">Toy Story</div> 
+        </div> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/tlTHC2vIihQ" allowfullscreen></iframe> 
+          <div class="label">Up</div> 
+        </div> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/c8aFcHFu8QM" allowfullscreen></iframe> 
+          <div class="label">Frozen</div> 
+        </div> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/o-YBDTqX_ZU" allowfullscreen></iframe> 
+          <div class="label">Zootopia</div> 
+        </div> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/8E8_WZfzU2g" allowfullscreen></iframe> 
+          <div class="label">Moana</div> 
+        </div> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe> 
+          <div class="label">Inside Out</div> 
+        </div> 
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/1hZ98W26XtQ" allowfullscreen></iframe> 
+          <div class="label">Shrek</div> 
+        </div>
+        <div class="video-card"> 
+          <iframe src="https://www.youtube.com/embed/YWMK52DXudA" allowfullscreen></iframe> 
+          <div class="label">Despicable Me</div> 
+        </div> 
+      </div> 
+    </div>
+
+  <section id="contact">
+    <h1>Contact</h1>
+    <p>Email: hervasulistia22@gmail.com</p>
+    <p>IG: <strong>@hervasulistia22</strong></p>
+  </section>
+
+  <!-- Search Overlay -->
+  <div id="searchOverlay">
+    <button class="close-btn" onclick="closeSearch()">✖ Tutup</button>
+    <input type="text" id="searchInput" placeholder="Cari sesuatu..." oninput="performSearch()" />
+    <div id="searchResults"></div>
   </div>
 
-  <!-- Gambar -->
-  <div class="section">
-    <h2>🖼️ Format Gambar Populer</h2>
-    <div class="gallery">
-      <div class="item searchable" data-keywords="jpeg jpg">
-        <img src="WhatsApp Image 2025-04-18 at 20.33.21_8ad71978.jpg" alt="JPEG" />
-        <p class="label">JPEG</p>
-      </div>
-      <div class="item searchable" data-keywords="png">
-        <img src="WhatsApp Image 2025-04-18 at 20.33.21_d0dff4ca.jpg" alt="PNG" />
-        <p class="label">PNG</p>
-      </div>
-      <div class="item searchable" data-keywords="svg">
-        <img src="WhatsApp Image 2025-04-18 at 20.34.57_a8988f58.jpg" alt="SVG" />
-        <p class="label">SVG</p>
-      </div>
-      <div class="item searchable" data-keywords="gif">
-        <img src="WhatsApp Image 2025-04-18 at 20.34.58_9bce9467.jpg" alt="GIF" />
-        <p class="label">GIF</p>
-      </div>
-      <div class="item searchable" data-keywords="ico icon">
-        <img src="WhatsApp Image 2025-04-18 at 20.34.58_e86b9342.jpg" alt="ICO" />
-        <p class="label">ICO</p>
-      </div>
-      <div class="item searchable" data-keywords="bmp bitmap">
-        <img src="WhatsApp Image 2025-04-18 at 20.34.59_1b2bf2d9.jpg" alt="BMP" />
-        <p class="label">BMP</p>
-      </div>
-      <div class="item searchable" data-keywords="tiff tif">
-        <img src="WhatsApp Image 2025-04-18 at 20.36.43_19e7c64d.jpg" alt="TIFF" />
-        <p class="label">TIFF</p>
-      </div>
-      <div class="item searchable" data-keywords="heif">
-        <img src="WhatsApp Image 2025-04-18 at 20.36.43_c0624f31.jpg" alt="HEIF" />
-        <p class="label">HEIF</p>
-      </div>
-      <div class="item searchable" data-keywords="raw">
-        <img src="WhatsApp Image 2025-04-18 at 20.36.44_abb859a6.jpg" alt="RAW" />
-        <p class="label">RAW</p>
-      </div>
-      <div class="item searchable" data-keywords="webp">
-        <img src="WhatsApp Image 2025-04-18 at 20.36.44_ced68b8c.jpg" alt="WEBP" />
-        <p class="label">WEBP</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Audio -->
-  <div class="section" id="audio">
-    <h2>🎵 Contoh Format Audio</h2>
-    <div class="audio-item searchable" data-keywords="mp3">
-      <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-      <h3>MP3</h3>
-    </div>
-    <div class="audio-item searchable" data-keywords="wav">
-      <audio controls src="https://file-examples.com/storage/feab3090d29904ce1763c13/2017/11/file_example_WAV_1MG.wav"></audio>
-      <h3>WAV</h3>
-    </div>
-    <div class="audio-item searchable" data-keywords="ogg">
-      <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_OOG_1MG.ogg"></audio>
-      <h3>OGG</h3>
-    </div>
-    <div class="audio-item searchable" data-keywords="aac">
-      <audio controls src="https://file-examples.com/storage/fed9e0ffb06687a3c29fd4e/2017/11/file_example_AAC_1MG.aac"></audio>
-      <h3>AAC</h3>
-    </div>
-    <div class="audio-item searchable" data-keywords="m4a">
-      <audio controls src="https://filesamples.com/samples/audio/m4a/sample1.m4a"></audio>
-      <h3>M4A</h3>
-    </div>
-    <p><a href="https://filesamples.com/samples/audio/flac/sample1.flac" target="_blank" class="searchable" data-keywords="flac">🔗 Download FLAC</a></p>
-    <p><a href="https://filesamples.com/samples/audio/aiff/sample1.aiff" target="_blank" class="searchable" data-keywords="aiff">🔗 Download AIFF</a></p>
-    <p><a href="https://archive.org/download/testmp4video_202105/sample_alac.m4a" target="_blank" class="searchable" data-keywords="alac">🔗 Download ALAC</a></p>
-    <p><a href="https://filesamples.com/samples/audio/wma/sample1.wma" target="_blank" class="searchable" data-keywords="wma">🔗 Download WMA</a></p>
-    <p><a href="https://filesamples.com/samples/audio/opus/sample1.opus" target="_blank" class="searchable" data-keywords="opus">🔗 Download OPUS</a></p>
-  </div>
-
-  <!-- Video -->
-  <div class="section" id="video">
-    <h2>🎬 Contoh Format Video (YouTube)</h2>
-    <div class="video-grid">
-      <div class="video-card searchable" data-keywords="mp4">
-        <iframe src="https://www.youtube.com/embed/XqZsoesa55w" allowfullscreen></iframe>
-        <div class="label">MP4</div>
-      </div>
-      <div class="video-card searchable" data-keywords="mkv">
-        <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe>
-        <div class="label">MKV</div>
-      </div>
-      <div class="video-card searchable" data-keywords="avi">
-        <iframe src="https://www.youtube.com/embed/f9Jh1dZK1tI" allowfullscreen></iframe>
-        <div class="label">AVI</div>
-      </div>
-      <div class="video-card searchable" data-keywords="mov">
-        <iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" allowfullscreen></iframe>
-        <div class="label">MOV</div>
-      </div>
-      <div class="video-card searchable" data-keywords="wmv">
-        <iframe src="https://www.youtube.com/embed/RgKAFK5djSk" allowfullscreen></iframe>
-        <div class="label">WMV</div>
-      </div>
-      <div class="video-card searchable" data-keywords="flv">
-        <iframe src="https://www.youtube.com/embed/ZbZSe6N_BXs" allowfullscreen></iframe>
-        <div class="label">FLV</div>
-      </div>
-      <div class="video-card searchable" data-keywords="webm">
-        <iframe src="https://www.youtube.com/embed/KYniUCGPGLs" allowfullscreen></iframe>
-        <div class="label">WEBM</div>
-      </div>
-      <div class="video-card searchable" data-keywords="3gp">
-        <iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" allowfullscreen></iframe>
-        <div class="label">3GP</div>
-      </div>
-      <div class="video-card searchable" data-keywords="avchd">
-        <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe>
-        <div class="label">AVCHD</div>
-      </div>
-      <div class="video-card searchable" data-keywords="mpeg">
-        <iframe src="https://www.youtube.com/embed/FzG4uDgje3M" allowfullscreen></iframe>
-        <div class="label">MPEG</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Animasi -->
-  <div class="section" id="video-animasi">
-    <h2>🧙‍♂️ Contoh Animasi Populer</h2>
-    <div class="video-grid">
-      <div class="video-card searchable" data-keywords="the lion king">
-        <iframe src="https://www.youtube.com/embed/4sj1MT05lAA" allowfullscreen></iframe>
-        <div class="label">The Lion King</div>
-      </div>
-      <div class="video-card searchable" data-keywords="finding nemo">
-        <iframe src="https://www.youtube.com/embed/SPHfeNgogVs" allowfullscreen></iframe>
-        <div class="label">Finding Nemo</div>
-      </div>
-      <div class="video-card searchable" data-keywords="toy story">
-        <iframe src="https://www.youtube.com/embed/KYz2wyBy3kc" allowfullscreen></iframe>
-        <div class="label">Toy Story</div>
-      </div>
-      <div class="video-card searchable" data-keywords="up">
-        <iframe src="https://www.youtube.com/embed/tlTHC2vIihQ" allowfullscreen></iframe>
-        <div class="label">Up</div>
-      </div>
-      <div class="video-card searchable" data-keywords="frozen">
-        <iframe src="https://www.youtube.com/embed/c8aFcHFu8QM" allowfullscreen></iframe>
-        <div class="label">Frozen</div>
-      </div>
-      <div class="video-card searchable" data-keywords="zootopia">
-        <iframe src="https://www.youtube.com/embed/o-YBDTqX_ZU" allowfullscreen></iframe>
-        <div class="label">Zootopia</div>
-      </div>
-      <div class="video-card searchable" data-keywords="moana">
-        <iframe src="https://www.youtube.com/embed/8E8_WZfzU2g" allowfullscreen></iframe>
-        <div class="label">Moana</div>
-      </div>
-      <div class="video-card searchable" data-keywords="inside out">
-        <iframe src="https://www.youtube.com/embed/vlDzYIIOYmM" allowfullscreen></iframe>
-        <div class="label">Inside Out</div>
-      </div>
-      <div class="video-card searchable" data-keywords="shrek">
-        <iframe src="https://www.youtube.com/embed/CwXOrWvPBPk" allowfullscreen></iframe>
-        <div class="label">Shrek</div>
-      </div>
-      <div class="video-card searchable" data-keywords="despicable me">
-        <iframe src="https://www.youtube.com/embed/sOEg_YZQsTI" allowfullscreen></iframe>
-        <div class="label">Despicable Me</div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<script>
-  // Fungsi cari sederhana (filter berdasarkan kata kunci di atribut data-keywords)
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', () => {
-    const query = searchInput.value.trim().toLowerCase();
-    const searchables = document.querySelectorAll('.searchable');
-
-    if (query === '') {
-      searchables.forEach(el => el.classList.remove('hidden'));
-      return;
+  <script>
+    function openSearch() {
+      document.getElementById('searchOverlay').style.display = 'flex';
+      document.getElementById('searchInput').value = '';
+      document.getElementById('searchResults').innerHTML = '';
+      document.getElementById('searchInput').focus();
+    }
+    function closeSearch() {
+      document.getElementById('searchOverlay').style.display = 'none';
     }
 
-    searchables.forEach(el => {
-      const keywords = el.dataset.keywords.toLowerCase();
-      if (keywords.includes(query)) {
-        el.classList.remove('hidden');
-      } else {
-        el.classList.add('hidden');
+    function performSearch() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const resultsContainer = document.getElementById('searchResults');
+      resultsContainer.innerHTML = '';
+
+      if (input.length === 0) {
+        return;
       }
-    });
-  });
-</script>
+
+      // Cari semua section yang ada id-nya dan teks di dalamnya
+      const sections = document.querySelectorAll('section[id]');
+      let results = [];
+
+      sections.forEach(section => {
+        const text = section.innerText.toLowerCase();
+        if (text.includes(input)) {
+          results.push({
+            id: section.id,
+            title: section.querySelector('h1, h2')?.innerText || section.id
+          });
+        }
+      });
+
+      if (results.length === 0) {
+        resultsContainer.innerHTML = '<p>Tidak ada hasil ditemukan.</p>';
+      } else {
+        results.forEach(res => {
+          const a = document.createElement('a');
+          a.textContent = res.title;
+          a.href = `#${res.id}`;
+          a.onclick = function(e) {
+            e.preventDefault();
+            closeSearch();
+            document.getElementById(res.id).scrollIntoView({ behavior: 'smooth' });
+          };
+          resultsContainer.appendChild(a);
+        });
+      }
+    }
+  </script>
 
 </body>
 </html>
